@@ -1,19 +1,27 @@
 package org.dieschnittstelle.jee.esa.servlets.client;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 import org.dieschnittstelle.jee.esa.crm.entities.AbstractTouchpoint;
 import org.dieschnittstelle.jee.esa.crm.entities.Address;
 import org.dieschnittstelle.jee.esa.crm.entities.StationaryTouchpoint;
+
+import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 
 public class ShowTouchpointService {
 
@@ -140,7 +148,23 @@ public class ShowTouchpointService {
 	 */
 	public void deleteTouchpoint(AbstractTouchpoint tp) {
 		logger.info("deleteTouchpoint(): " + tp);
-
+			
+		try {
+			// create a delete request for the api/touchpoints uri
+			HttpDelete request = new HttpDelete("http://localhost:8888/org.dieschnittstelle.jee.esa.servlets/api/touchpoints/delete/" +tp.getId());
+			
+			// execute the request, which will return a HttpResponse object
+			HttpResponse response = client.execute(request);
+			
+			// log the status line
+			logger.info("Delete, Response status: " + response.getStatusLine());
+			
+			// cleanup the request
+			EntityUtils.consume(response.getEntity());
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	/**
@@ -148,8 +172,7 @@ public class ShowTouchpointService {
 	 * 
 	 * fuer das Schreiben des zu erzeugenden Objekts als Request Body siehe die
 	 * Hinweise auf:
-	 * http://stackoverflow.com/questions/10146692/how-do-i-write-to
-	 * -an-outpustream-using-defaulthttpclient
+	 * http://stackoverflow.com/questions/10146692/how-do-i-write-to-an-outputstream-using-defaulthttpclient
 	 * 
 	 * @param tp
 	 */
@@ -157,36 +180,46 @@ public class ShowTouchpointService {
 		logger.info("createNewTouchpoint(): " + tp);
 
 		try {
-
 			// create post request for the api/touchpoints uri
+			HttpPost request = new HttpPost("http://localhost:8888/org.dieschnittstelle.jee.esa.servlets/api/touchpoints");
 
 			// create an ObjectOutputStream from a ByteArrayOutputStream - the
 			// latter must be accessible via a variable
-
+			ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(bos);
+			
 			// write the object to the output stream
-
+			oos.writeObject(tp);
+			
 			// create a ByteArrayEntity and pass it the byte array from the
 			// output stream
-
+			ByteArrayEntity entity = new ByteArrayEntity(bos.toByteArray());
+			
 			// set the entity on the request
-
+			request.setEntity(entity);
+			
 			// execute the request, which will return a HttpResponse object
-
+			HttpResponse response = client.execute(request);
+			
 			// log the status line
-
+			logger.info("Response status: " + response.getStatusLine());
+			
 			// evaluate the result using getStatusLine(), use constants in
 			// HttpStatus
-
-			/* if successful: */
-
-			// create an object input stream using getContent() from the
-			// response entity (accessible via getEntity())
-
-			// read the touchpoint object from the input stream
-
-			// cleanup the request
-			// EntityUtils.consume(response.getEntity());
-
+			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				/* if successful: */
+				// create an object input stream using getContent() from the
+				// response entity (accessible via getEntity())
+				ObjectInputStream ois = new ObjectInputStream(response.getEntity().getContent());
+				
+				// read the touchpoint object from the input stream
+				AbstractTouchpoint receivedObj = (AbstractTouchpoint) ois.readObject();
+				logger.info(receivedObj);
+				
+				// cleanup the request
+				EntityUtils.consume(response.getEntity());
+				return receivedObj;
+			}
 			return null;
 		} catch (Exception e) {
 			logger.error("got exception: " + e, e);
