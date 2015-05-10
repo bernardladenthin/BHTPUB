@@ -3,6 +3,8 @@ package org.dieschnittstelle.jee.esa.basics;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -65,21 +67,34 @@ public class ShowAnnotations {
 		HashMap<String, String> attributes = new HashMap<>();
 		for (Field f : fields) {
 			try {
-				String name = f.getName();
-
+				
+				Method getterMethodFromField = getGetterMethodObject(consumable, f.getName());
+				Object getterReturnValue = getterMethodFromField.invoke(consumable);
+				
+				String key = f.getName();
 				// if exist, use the DisplayAs annotation
 				String displayAs = getDisplayAsAnnotationIfExist(f);
 				if (displayAs != null) {
-					name = displayAs;
+					key = displayAs;
 				}
 				
-				f.setAccessible(true);
-				attributes.put(name, String.valueOf(f.get(consumable)));
-			} catch (IllegalArgumentException | IllegalAccessException e) {
+				String value = String.valueOf(getterReturnValue);
+				
+				attributes.put(key, value);
+			} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
 				throw new RuntimeException(e);
 			}
 		}
 		return attributes;
+	}
+
+	private static Method getGetterMethodObject(Object object, String field) {
+		String getterMethodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+		try {
+			return object.getClass().getDeclaredMethod(getterMethodName);
+		} catch (NoSuchMethodException | SecurityException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	private static String getDisplayAsAnnotationIfExist(Field f) {
