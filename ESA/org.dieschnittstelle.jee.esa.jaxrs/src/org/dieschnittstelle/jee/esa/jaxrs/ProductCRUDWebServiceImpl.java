@@ -8,7 +8,7 @@ import javax.ws.rs.core.Context;
 
 import org.apache.log4j.Logger;
 import org.dieschnittstelle.jee.esa.entities.GenericCRUDExecutor;
-import org.dieschnittstelle.jee.esa.erp.entities.IndividualisedProductItem;
+import org.dieschnittstelle.jee.esa.erp.entities.AbstractProduct;
 
 /*
 UE JRS2: implementieren Sie hier die im Interface deklarierten Methoden
@@ -21,29 +21,29 @@ public class ProductCRUDWebServiceImpl implements IProductCRUDWebService {
 	/**
 	 * this accessor will be provided by the ServletContext, to which it is written by the ProductServletContextListener
 	 */
-	private GenericCRUDExecutor<IndividualisedProductItem> productCRUD;
+	private GenericCRUDExecutor<AbstractProduct> productCRUD;
 	
 	public ProductCRUDWebServiceImpl(@Context ServletContext servletContext, @Context HttpServletRequest request) {
 		logger.info("<constructor>: " + servletContext + "/" + request);
 		// read out the dataAccessor
-		this.productCRUD = (GenericCRUDExecutor<IndividualisedProductItem>)servletContext.getAttribute("productCRUD");
+		this.productCRUD = (GenericCRUDExecutor<AbstractProduct>)servletContext.getAttribute("productCRUD");
 		
 		logger.debug("read out the productCRUD from the servlet context: " + this.productCRUD);		
 	}
 	
 	@Override
-	public IndividualisedProductItem createProduct(IndividualisedProductItem prod) {
-		return (IndividualisedProductItem)this.productCRUD.createObject(prod);	
+	public AbstractProduct createProduct(AbstractProduct prod) {
+		return (AbstractProduct)this.productCRUD.createObject(prod);	
 	}
 
 	@Override
-	public List<IndividualisedProductItem> readAllProducts() {
-		return (List)this.productCRUD.readAllObjects();
+	public List<AbstractProduct> readAllProducts() {
+		return this.productCRUD.readAllObjects();
 	}
 
 	@Override
-	public IndividualisedProductItem updateProduct(int id, IndividualisedProductItem update) {
-		return (IndividualisedProductItem)this.productCRUD.updateObject(update);	
+	public AbstractProduct updateProduct(int id, AbstractProduct update) {
+		return (AbstractProduct)this.productCRUD.updateObject(update);	
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class ProductCRUDWebServiceImpl implements IProductCRUDWebService {
 	}
 
 	@Override
-	public IndividualisedProductItem readProduct(int id) {
+	public AbstractProduct readProduct(int id) {
 		return this.productCRUD.readObject(id);
 	}
 	
