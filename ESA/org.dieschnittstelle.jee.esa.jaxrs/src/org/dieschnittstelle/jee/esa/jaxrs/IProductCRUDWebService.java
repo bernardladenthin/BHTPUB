@@ -29,7 +29,7 @@ import org.dieschnittstelle.jee.esa.erp.entities.IndividualisedProductItem;
 /*
  * UE JRS3: aendern Sie Argument- und Rueckgabetypen der Methoden von IndividualisedProductItem auf AbstractProduct
  */
-@Path("/resteasy/touchpoints")
+@Path("/resteasy/products")
 @Consumes({ "application/json" })
 @Produces({ "application/json" })
 public interface IProductCRUDWebService {

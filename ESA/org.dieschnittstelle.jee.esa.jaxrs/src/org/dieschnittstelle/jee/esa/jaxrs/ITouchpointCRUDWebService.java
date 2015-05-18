@@ -34,5 +34,9 @@ public interface ITouchpointCRUDWebService {
 	 */
 	@PUT
 	public StationaryTouchpoint updateTouchpoint(StationaryTouchpoint touchpoint); 
+
+	@GET
+	@Path("/{touchpointId}")
+	public StationaryTouchpoint readTouchpoint(@PathParam("touchpointId") int id);
 	
 }
