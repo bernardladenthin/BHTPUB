@@ -11,9 +11,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.dieschnittstelle.jee.esa.erp.entities.AbstractProduct;
-import org.dieschnittstelle.jee.esa.erp.entities.IndividualisedProductItem;
 
 /*
  * UE JRS2: 
@@ -35,15 +33,14 @@ import org.dieschnittstelle.jee.esa.erp.entities.IndividualisedProductItem;
 public interface IProductCRUDWebService {
 
 	@POST
-	public IndividualisedProductItem createProduct(IndividualisedProductItem prod);
+	public AbstractProduct createProduct(AbstractProduct prod);
 
 	@GET
-	public List<IndividualisedProductItem> readAllProducts();
+	public List<AbstractProduct> readAllProducts();
 
 	@PUT
 	@Path("/{productId}")
-	public IndividualisedProductItem updateProduct(@PathParam("productId") int id,
-			IndividualisedProductItem update);
+	public AbstractProduct updateProduct(@PathParam("productId") int id, AbstractProduct update);
 
 	@DELETE
 	@Path("/{productId}")
@@ -51,6 +48,6 @@ public interface IProductCRUDWebService {
 
 	@GET
 	@Path("/{productId}")
-	public IndividualisedProductItem readProduct(@PathParam("productId") int id);
+	public AbstractProduct readProduct(@PathParam("productId") int id);
 			
 }

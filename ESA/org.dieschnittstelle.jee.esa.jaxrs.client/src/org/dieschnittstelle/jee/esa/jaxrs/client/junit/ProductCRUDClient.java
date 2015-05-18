@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider;
 import org.dieschnittstelle.jee.esa.erp.entities.AbstractProduct;
-import org.dieschnittstelle.jee.esa.erp.entities.IndividualisedProductItem;
 import org.dieschnittstelle.jee.esa.jaxrs.IProductCRUDWebService;
 import org.jboss.resteasy.client.ProxyFactory;
 import org.jboss.resteasy.client.core.executors.ApacheHttpClient4Executor;
@@ -35,7 +34,7 @@ public class ProductCRUDClient {
 				"http://localhost:8888/org.dieschnittstelle.jee.esa.jaxrs", new ApacheHttpClient4Executor());
 	}
 
-	public AbstractProduct createProduct(IndividualisedProductItem prod) {
+	public AbstractProduct createProduct(AbstractProduct prod) {
 		AbstractProduct created = proxy.createProduct(prod);
 		// as a side-effect we set the id of the created product on the argument before returning
 		prod.setId(created.getId());
@@ -47,7 +46,7 @@ public class ProductCRUDClient {
 	}
 
 	public AbstractProduct updateProduct(AbstractProduct update) {
-		return proxy.updateProduct(update.getId(),(IndividualisedProductItem)update);
+		return proxy.updateProduct(update.getId(),(AbstractProduct)update);
 	}
 
 	public boolean deleteProduct(int id) {

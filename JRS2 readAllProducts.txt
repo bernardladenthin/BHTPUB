@@ -1,0 +1,3 @@
+http://localhost:8888/org.dieschnittstelle.jee.esa.jaxrs/resteasy/products/
+
+[{"@class":"org.dieschnittstelle.jee.esa.erp.entities.IndividualisedProductItem","productType":"PASTRY","expirationAfterStocked":1080,"name":"Kirschplunder","id":4,"price":0},{"@class":"org.dieschnittstelle.jee.esa.erp.entities.IndividualisedProductItem","productType":"PASTRY","expirationAfterStocked":1080,"name":"Kirschplunder","id":6,"price":0},{"@class":"org.dieschnittstelle.jee.esa.erp.entities.IndividualisedProductItem","productType":"PASTRY","expirationAfterStocked":1080,"name":"Kirschplunder","id":8,"price":0}]
