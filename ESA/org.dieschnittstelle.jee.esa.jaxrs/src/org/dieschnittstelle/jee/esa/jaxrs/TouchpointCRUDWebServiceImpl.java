@@ -57,4 +57,10 @@ public class TouchpointCRUDWebServiceImpl implements ITouchpointCRUDWebService {
 		return (StationaryTouchpoint)this.touchpointCRUD.updateObject(touchpoint);	
 	}
 
+
+	@Override
+	public StationaryTouchpoint readTouchpoint(int id) {
+		return (StationaryTouchpoint)this.touchpointCRUD.readObject(id);
+	}
+
 }
