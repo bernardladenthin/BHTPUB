@@ -2,8 +2,14 @@ package org.dieschnittstelle.jee.esa.erp.entities;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
+
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(namespace = "http://dieschnittstelle.org/jee/esa/erp/entities")
 public class IndividualisedProductItem extends AbstractProduct implements Serializable {
 	
 	/**

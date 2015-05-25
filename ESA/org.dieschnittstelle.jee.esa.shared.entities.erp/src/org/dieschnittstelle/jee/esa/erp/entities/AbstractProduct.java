@@ -2,6 +2,11 @@ package org.dieschnittstelle.jee.esa.erp.entities;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+
 import org.codehaus.jackson.annotate.JsonTypeInfo;
 import org.dieschnittstelle.jee.esa.entities.GenericCRUDEntity;
 
@@ -9,6 +14,10 @@ import org.dieschnittstelle.jee.esa.entities.GenericCRUDEntity;
  * UE JRS3: entfernen Sie die Auskommentierung der Annotation
  */
 @JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include=JsonTypeInfo.As.PROPERTY, property="@class")
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(namespace = "http://dieschnittstelle.org/jee/esa/erp/entities")
+@XmlSeeAlso({IndividualisedProductItem.class})
 public abstract class AbstractProduct implements Serializable, GenericCRUDEntity {
 
 	/**
