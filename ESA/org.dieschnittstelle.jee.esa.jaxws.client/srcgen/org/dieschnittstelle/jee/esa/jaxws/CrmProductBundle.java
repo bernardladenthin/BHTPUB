@@ -4,6 +4,7 @@ package org.dieschnittstelle.jee.esa.jaxws;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
+import org.dieschnittstelle.jee.esa.erp.entities.AbstractProduct;
 
 
 /**
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="productObj" type="{http://dieschnittstelle.org/jee/esa/jaxws}abstractProduct" minOccurs="0"/>
+ *         &lt;element name="productObj" type="{http://dieschnittstelle.org/jee/esa/erp/entities}abstractProduct" minOccurs="0"/>
  *         &lt;element name="units" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
