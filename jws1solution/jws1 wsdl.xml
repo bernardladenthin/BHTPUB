@@ -1,0 +1,146 @@
+<?xml version="1.0" ?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://dieschnittstelle.org/jee/esa/jaxws" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="TouchpointCRUDWebService" targetNamespace="http://dieschnittstelle.org/jee/esa/jaxws">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://dieschnittstelle.org/jee/esa/jaxws" xmlns:ns1="http://dieschnittstelle.org/jee/esa/crm/entities" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://dieschnittstelle.org/jee/esa/jaxws">
+  <xs:import namespace="http://dieschnittstelle.org/jee/esa/crm/entities"></xs:import>
+  <xs:complexType name="address">
+    <xs:complexContent>
+      <xs:extension base="tns:location">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="city" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="houseNr" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="street" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="zipCode" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="location">
+    <xs:sequence>
+      <xs:element name="geoLat" type="xs:long"></xs:element>
+      <xs:element name="geoLong" type="xs:long"></xs:element>
+      <xs:element name="id" type="xs:int"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mobileTouchpoint">
+    <xs:complexContent>
+      <xs:extension base="ns1:abstractTouchpoint">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="mobilePhoneIds" nillable="true" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="readAllTouchpointsResponse" nillable="true" type="ns1:abstractTouchpointArray"></xs:element>
+  <xs:element name="createTouchpoint" nillable="true" type="ns1:abstractTouchpoint"></xs:element>
+  <xs:element name="createTouchpointResponse" nillable="true" type="ns1:abstractTouchpoint"></xs:element>
+  <xs:element name="deleteTouchpoint" nillable="true" type="xs:int"></xs:element>
+  <xs:element name="deleteTouchpointResponse" nillable="true" type="xs:boolean"></xs:element>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://dieschnittstelle.org/jee/esa/crm/entities" xmlns:ns1="http://dieschnittstelle.org/jee/esa/jaxws" targetNamespace="http://dieschnittstelle.org/jee/esa/crm/entities" version="1.0">
+
+  <xs:import namespace="http://dieschnittstelle.org/jee/esa/jaxws"></xs:import>
+
+  <xs:complexType abstract="true" name="abstractTouchpoint">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"></xs:element>
+      <xs:element name="erpPointOfSaleId" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="stationaryTouchpoint">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractTouchpoint">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="location" type="ns1:address"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType final="#all" name="abstractTouchpointArray">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:abstractTouchpoint"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="readAllTouchpoints">
+  </wsdl:message>
+  <wsdl:message name="createTouchpoint">
+    <wsdl:part element="tns:createTouchpoint" name="createTouchpoint">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteTouchpointResponse">
+    <wsdl:part element="tns:deleteTouchpointResponse" name="deleteTouchpointResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createTouchpointResponse">
+    <wsdl:part element="tns:createTouchpointResponse" name="createTouchpointResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="readAllTouchpointsResponse">
+    <wsdl:part element="tns:readAllTouchpointsResponse" name="readAllTouchpointsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteTouchpoint">
+    <wsdl:part element="tns:deleteTouchpoint" name="deleteTouchpoint">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TouchpointCRUDWebServiceSOAP">
+    <wsdl:operation name="readAllTouchpoints">
+      <wsdl:input message="tns:readAllTouchpoints" name="readAllTouchpoints">
+    </wsdl:input>
+      <wsdl:output message="tns:readAllTouchpointsResponse" name="readAllTouchpointsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createTouchpoint">
+      <wsdl:input message="tns:createTouchpoint" name="createTouchpoint">
+    </wsdl:input>
+      <wsdl:output message="tns:createTouchpointResponse" name="createTouchpointResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTouchpoint">
+      <wsdl:input message="tns:deleteTouchpoint" name="deleteTouchpoint">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteTouchpointResponse" name="deleteTouchpointResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TouchpointCRUDWebServiceSoapBinding" type="tns:TouchpointCRUDWebServiceSOAP">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="readAllTouchpoints">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="readAllTouchpoints">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="readAllTouchpointsResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createTouchpoint">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="createTouchpoint">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="createTouchpointResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTouchpoint">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="deleteTouchpoint">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="deleteTouchpointResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TouchpointCRUDWebService">
+    <wsdl:port binding="tns:TouchpointCRUDWebServiceSoapBinding" name="TouchpointCRUDWebServiceSOAPPort">
+      <soap:address location="http://localhost:8080/org.dieschnittstelle.jee.esa.jaxws/TouchpointCRUDWebService"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
