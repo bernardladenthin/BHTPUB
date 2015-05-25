@@ -13,9 +13,9 @@ import org.dieschnittstelle.jee.esa.crm.entities.AbstractTouchpoint;
 
 
 /**
- * <p>Java class for customerTransaction complex type.
+ * <p>Java-Klasse für customerTransaction complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="customerTransaction">
@@ -60,7 +60,7 @@ public class CustomerTransaction {
     protected int value;
 
     /**
-     * Gets the value of the completed property.
+     * Ruft den Wert der completed-Eigenschaft ab.
      * 
      */
     public boolean isCompleted() {
@@ -68,7 +68,7 @@ public class CustomerTransaction {
     }
 
     /**
-     * Sets the value of the completed property.
+     * Legt den Wert der completed-Eigenschaft fest.
      * 
      */
     public void setCompleted(boolean value) {
@@ -76,7 +76,7 @@ public class CustomerTransaction {
     }
 
     /**
-     * Gets the value of the customer property.
+     * Ruft den Wert der customer-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -88,7 +88,7 @@ public class CustomerTransaction {
     }
 
     /**
-     * Sets the value of the customer property.
+     * Legt den Wert der customer-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
@@ -100,7 +100,7 @@ public class CustomerTransaction {
     }
 
     /**
-     * Gets the value of the date property.
+     * Ruft den Wert der date-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -112,7 +112,7 @@ public class CustomerTransaction {
     }
 
     /**
-     * Sets the value of the date property.
+     * Legt den Wert der date-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
@@ -124,7 +124,7 @@ public class CustomerTransaction {
     }
 
     /**
-     * Gets the value of the id property.
+     * Ruft den Wert der id-Eigenschaft ab.
      * 
      */
     public int getId() {
@@ -132,7 +132,7 @@ public class CustomerTransaction {
     }
 
     /**
-     * Sets the value of the id property.
+     * Legt den Wert der id-Eigenschaft fest.
      * 
      */
     public void setId(int value) {
@@ -169,7 +169,7 @@ public class CustomerTransaction {
     }
 
     /**
-     * Gets the value of the touchpoint property.
+     * Ruft den Wert der touchpoint-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -181,7 +181,7 @@ public class CustomerTransaction {
     }
 
     /**
-     * Sets the value of the touchpoint property.
+     * Legt den Wert der touchpoint-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
@@ -193,7 +193,7 @@ public class CustomerTransaction {
     }
 
     /**
-     * Gets the value of the value property.
+     * Ruft den Wert der value-Eigenschaft ab.
      * 
      */
     public int getValue() {
@@ -201,7 +201,7 @@ public class CustomerTransaction {
     }
 
     /**
-     * Sets the value of the value property.
+     * Legt den Wert der value-Eigenschaft fest.
      * 
      */
     public void setValue(int value) {

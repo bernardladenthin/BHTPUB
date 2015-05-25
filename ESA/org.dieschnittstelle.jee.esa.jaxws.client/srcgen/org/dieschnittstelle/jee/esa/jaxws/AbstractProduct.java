@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for abstractProduct complex type.
+ * <p>Java-Klasse für abstractProduct complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="abstractProduct">
@@ -40,7 +40,7 @@ public abstract class AbstractProduct {
     protected int price;
 
     /**
-     * Gets the value of the id property.
+     * Ruft den Wert der id-Eigenschaft ab.
      * 
      */
     public int getId() {
@@ -48,7 +48,7 @@ public abstract class AbstractProduct {
     }
 
     /**
-     * Sets the value of the id property.
+     * Legt den Wert der id-Eigenschaft fest.
      * 
      */
     public void setId(int value) {
@@ -56,7 +56,7 @@ public abstract class AbstractProduct {
     }
 
     /**
-     * Gets the value of the name property.
+     * Ruft den Wert der name-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -68,7 +68,7 @@ public abstract class AbstractProduct {
     }
 
     /**
-     * Sets the value of the name property.
+     * Legt den Wert der name-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
@@ -80,7 +80,7 @@ public abstract class AbstractProduct {
     }
 
     /**
-     * Gets the value of the price property.
+     * Ruft den Wert der price-Eigenschaft ab.
      * 
      */
     public int getPrice() {
@@ -88,7 +88,7 @@ public abstract class AbstractProduct {
     }
 
     /**
-     * Sets the value of the price property.
+     * Legt den Wert der price-Eigenschaft fest.
      * 
      */
     public void setPrice(int value) {

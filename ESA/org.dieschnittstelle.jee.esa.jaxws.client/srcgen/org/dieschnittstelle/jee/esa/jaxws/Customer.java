@@ -11,9 +11,9 @@ import org.dieschnittstelle.jee.esa.crm.entities.AbstractTouchpoint;
 
 
 /**
- * <p>Java class for customer complex type.
+ * <p>Java-Klasse für customer complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="customer">
@@ -63,7 +63,7 @@ public class Customer {
     protected List<CustomerTransaction> transactions;
 
     /**
-     * Gets the value of the address property.
+     * Ruft den Wert der address-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -75,7 +75,7 @@ public class Customer {
     }
 
     /**
-     * Sets the value of the address property.
+     * Legt den Wert der address-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
@@ -87,7 +87,7 @@ public class Customer {
     }
 
     /**
-     * Gets the value of the email property.
+     * Ruft den Wert der email-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -99,7 +99,7 @@ public class Customer {
     }
 
     /**
-     * Sets the value of the email property.
+     * Legt den Wert der email-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
@@ -111,7 +111,7 @@ public class Customer {
     }
 
     /**
-     * Gets the value of the firstName property.
+     * Ruft den Wert der firstName-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -123,7 +123,7 @@ public class Customer {
     }
 
     /**
-     * Sets the value of the firstName property.
+     * Legt den Wert der firstName-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
@@ -135,7 +135,7 @@ public class Customer {
     }
 
     /**
-     * Gets the value of the gender property.
+     * Ruft den Wert der gender-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -147,7 +147,7 @@ public class Customer {
     }
 
     /**
-     * Sets the value of the gender property.
+     * Legt den Wert der gender-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
@@ -159,7 +159,7 @@ public class Customer {
     }
 
     /**
-     * Gets the value of the id property.
+     * Ruft den Wert der id-Eigenschaft ab.
      * 
      */
     public int getId() {
@@ -167,7 +167,7 @@ public class Customer {
     }
 
     /**
-     * Sets the value of the id property.
+     * Legt den Wert der id-Eigenschaft fest.
      * 
      */
     public void setId(int value) {
@@ -175,7 +175,7 @@ public class Customer {
     }
 
     /**
-     * Gets the value of the lastName property.
+     * Ruft den Wert der lastName-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -187,7 +187,7 @@ public class Customer {
     }
 
     /**
-     * Sets the value of the lastName property.
+     * Legt den Wert der lastName-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
@@ -199,7 +199,7 @@ public class Customer {
     }
 
     /**
-     * Gets the value of the mobilePhoneId property.
+     * Ruft den Wert der mobilePhoneId-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -211,7 +211,7 @@ public class Customer {
     }
 
     /**
-     * Sets the value of the mobilePhoneId property.
+     * Legt den Wert der mobilePhoneId-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
@@ -223,7 +223,7 @@ public class Customer {
     }
 
     /**
-     * Gets the value of the preferredTouchpoint property.
+     * Ruft den Wert der preferredTouchpoint-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -235,7 +235,7 @@ public class Customer {
     }
 
     /**
-     * Sets the value of the preferredTouchpoint property.
+     * Legt den Wert der preferredTouchpoint-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is

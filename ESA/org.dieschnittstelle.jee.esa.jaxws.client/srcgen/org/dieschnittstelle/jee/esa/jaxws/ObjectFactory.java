@@ -26,10 +26,10 @@ import org.dieschnittstelle.jee.esa.crm.entities.AbstractTouchpointArray;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ReadAllTouchpointsResponse_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "readAllTouchpointsResponse");
-    private final static QName _DeleteTouchpointResponse_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "deleteTouchpointResponse");
     private final static QName _CreateTouchpoint_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "createTouchpoint");
+    private final static QName _DeleteTouchpointResponse_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "deleteTouchpointResponse");
     private final static QName _CreateTouchpointResponse_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "createTouchpointResponse");
+    private final static QName _ReadAllTouchpointsResponse_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "readAllTouchpointsResponse");
     private final static QName _DeleteTouchpoint_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "deleteTouchpoint");
 
     /**
@@ -40,19 +40,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link MobileTouchpoint }
+     * Create an instance of {@link CustomerTransaction }
      * 
      */
-    public MobileTouchpoint createMobileTouchpoint() {
-        return new MobileTouchpoint();
-    }
-
-    /**
-     * Create an instance of {@link Location }
-     * 
-     */
-    public Location createLocation() {
-        return new Location();
+    public CustomerTransaction createCustomerTransaction() {
+        return new CustomerTransaction();
     }
 
     /**
@@ -72,11 +64,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CustomerTransaction }
+     * Create an instance of {@link Location }
      * 
      */
-    public CustomerTransaction createCustomerTransaction() {
-        return new CustomerTransaction();
+    public Location createLocation() {
+        return new Location();
+    }
+
+    /**
+     * Create an instance of {@link MobileTouchpoint }
+     * 
+     */
+    public MobileTouchpoint createMobileTouchpoint() {
+        return new MobileTouchpoint();
     }
 
     /**
@@ -88,12 +88,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTouchpointArray }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTouchpoint }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://dieschnittstelle.org/jee/esa/jaxws", name = "readAllTouchpointsResponse")
-    public JAXBElement<AbstractTouchpointArray> createReadAllTouchpointsResponse(AbstractTouchpointArray value) {
-        return new JAXBElement<AbstractTouchpointArray>(_ReadAllTouchpointsResponse_QNAME, AbstractTouchpointArray.class, null, value);
+    @XmlElementDecl(namespace = "http://dieschnittstelle.org/jee/esa/jaxws", name = "createTouchpoint")
+    public JAXBElement<AbstractTouchpoint> createCreateTouchpoint(AbstractTouchpoint value) {
+        return new JAXBElement<AbstractTouchpoint>(_CreateTouchpoint_QNAME, AbstractTouchpoint.class, null, value);
     }
 
     /**
@@ -109,18 +109,18 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTouchpoint }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://dieschnittstelle.org/jee/esa/jaxws", name = "createTouchpoint")
-    public JAXBElement<AbstractTouchpoint> createCreateTouchpoint(AbstractTouchpoint value) {
-        return new JAXBElement<AbstractTouchpoint>(_CreateTouchpoint_QNAME, AbstractTouchpoint.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTouchpoint }{@code >}}
-     * 
-     */
     @XmlElementDecl(namespace = "http://dieschnittstelle.org/jee/esa/jaxws", name = "createTouchpointResponse")
     public JAXBElement<AbstractTouchpoint> createCreateTouchpointResponse(AbstractTouchpoint value) {
         return new JAXBElement<AbstractTouchpoint>(_CreateTouchpointResponse_QNAME, AbstractTouchpoint.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTouchpointArray }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dieschnittstelle.org/jee/esa/jaxws", name = "readAllTouchpointsResponse")
+    public JAXBElement<AbstractTouchpointArray> createReadAllTouchpointsResponse(AbstractTouchpointArray value) {
+        return new JAXBElement<AbstractTouchpointArray>(_ReadAllTouchpointsResponse_QNAME, AbstractTouchpointArray.class, null, value);
     }
 
     /**
