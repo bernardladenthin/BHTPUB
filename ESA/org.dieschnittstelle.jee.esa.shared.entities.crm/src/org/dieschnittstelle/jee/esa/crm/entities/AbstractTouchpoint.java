@@ -73,7 +73,7 @@ public abstract class AbstractTouchpoint implements Serializable, GenericCRUDEnt
 	/*
 	 * UE JWS2: kommentieren Sie @XmlTransient aus
 	 */
-	@XmlTransient
+	//@XmlTransient
 	@JsonIgnore
 	@ManyToMany
 	private Collection<Customer> customers = new HashSet<Customer>();
