@@ -28,6 +28,8 @@ public class ObjectFactory {
 
     private final static QName _CreateTouchpoint_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "createTouchpoint");
     private final static QName _DeleteTouchpointResponse_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "deleteTouchpointResponse");
+    private final static QName _UpdateTouchpoint_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "updateTouchpoint");
+    private final static QName _UpdateTouchpointResponse_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "updateTouchpointResponse");
     private final static QName _CreateTouchpointResponse_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "createTouchpointResponse");
     private final static QName _ReadAllTouchpointsResponse_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "readAllTouchpointsResponse");
     private final static QName _DeleteTouchpoint_QNAME = new QName("http://dieschnittstelle.org/jee/esa/jaxws", "deleteTouchpoint");
@@ -103,6 +105,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://dieschnittstelle.org/jee/esa/jaxws", name = "deleteTouchpointResponse")
     public JAXBElement<Boolean> createDeleteTouchpointResponse(Boolean value) {
         return new JAXBElement<Boolean>(_DeleteTouchpointResponse_QNAME, Boolean.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTouchpoint }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dieschnittstelle.org/jee/esa/jaxws", name = "updateTouchpoint")
+    public JAXBElement<AbstractTouchpoint> createUpdateTouchpoint(AbstractTouchpoint value) {
+        return new JAXBElement<AbstractTouchpoint>(_UpdateTouchpoint_QNAME, AbstractTouchpoint.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AbstractTouchpoint }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dieschnittstelle.org/jee/esa/jaxws", name = "updateTouchpointResponse")
+    public JAXBElement<AbstractTouchpoint> createUpdateTouchpointResponse(AbstractTouchpoint value) {
+        return new JAXBElement<AbstractTouchpoint>(_UpdateTouchpointResponse_QNAME, AbstractTouchpoint.class, null, value);
     }
 
     /**

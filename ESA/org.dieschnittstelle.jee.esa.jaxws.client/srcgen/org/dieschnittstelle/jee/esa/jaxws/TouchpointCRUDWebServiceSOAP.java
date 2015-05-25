@@ -35,4 +35,11 @@ public interface TouchpointCRUDWebServiceSOAP {
         @WebParam(partName = "deleteTouchpoint", name = "deleteTouchpoint", targetNamespace = "http://dieschnittstelle.org/jee/esa/jaxws")
         int deleteTouchpoint
     );
+
+    @WebMethod
+    @WebResult(name = "updateTouchpointResponse", targetNamespace = "http://dieschnittstelle.org/jee/esa/jaxws", partName = "updateTouchpointResponse")
+    public org.dieschnittstelle.jee.esa.crm.entities.AbstractTouchpoint updateTouchpoint(
+        @WebParam(partName = "updateTouchpoint", name = "updateTouchpoint", targetNamespace = "http://dieschnittstelle.org/jee/esa/jaxws")
+        org.dieschnittstelle.jee.esa.crm.entities.AbstractTouchpoint updateTouchpoint
+    );
 }
