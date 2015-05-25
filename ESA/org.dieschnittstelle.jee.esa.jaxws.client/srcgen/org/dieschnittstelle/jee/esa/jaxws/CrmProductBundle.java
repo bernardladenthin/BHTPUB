@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for crmProductBundle complex type.
+ * <p>Java-Klasse für crmProductBundle complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="crmProductBundle">
@@ -37,7 +37,7 @@ public class CrmProductBundle {
     protected int units;
 
     /**
-     * Gets the value of the productObj property.
+     * Ruft den Wert der productObj-Eigenschaft ab.
      * 
      * @return
      *     possible object is
@@ -49,7 +49,7 @@ public class CrmProductBundle {
     }
 
     /**
-     * Sets the value of the productObj property.
+     * Legt den Wert der productObj-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
@@ -61,7 +61,7 @@ public class CrmProductBundle {
     }
 
     /**
-     * Gets the value of the units property.
+     * Ruft den Wert der units-Eigenschaft ab.
      * 
      */
     public int getUnits() {
@@ -69,7 +69,7 @@ public class CrmProductBundle {
     }
 
     /**
-     * Sets the value of the units property.
+     * Legt den Wert der units-Eigenschaft fest.
      * 
      */
     public void setUnits(int value) {
