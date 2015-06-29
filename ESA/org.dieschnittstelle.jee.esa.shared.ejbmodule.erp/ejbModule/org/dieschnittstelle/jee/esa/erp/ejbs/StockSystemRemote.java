@@ -2,8 +2,11 @@ package org.dieschnittstelle.jee.esa.erp.ejbs;
 
 import java.util.List;
 
+import javax.ejb.Remote;
+
 import org.dieschnittstelle.jee.esa.erp.entities.IndividualisedProductItem;
 
+@Remote
 public interface StockSystemRemote {
 	
 		/**

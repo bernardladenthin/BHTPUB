@@ -1,6 +1,7 @@
 package org.dieschnittstelle.jee.esa.erp.entities;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
@@ -15,7 +16,7 @@ import javax.persistence.Table;
 
 import org.jboss.logging.Logger;
 
-//@Entity
+@Entity
 @Table(name = "stock")
 @IdClass(ProductAtPosPK.class)
 public class StockItem {

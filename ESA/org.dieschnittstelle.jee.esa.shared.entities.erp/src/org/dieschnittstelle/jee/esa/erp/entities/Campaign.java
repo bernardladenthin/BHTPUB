@@ -5,9 +5,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class Campaign extends AbstractProduct implements Serializable {
 
 	/**

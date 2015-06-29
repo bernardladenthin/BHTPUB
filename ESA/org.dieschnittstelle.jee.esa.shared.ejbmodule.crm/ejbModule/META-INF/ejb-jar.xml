@@ -10,7 +10,7 @@
 			<!-- <ejb-class>org.dieschnittstelle.jee.esa.crm.ejbs.ShoppingCartStateful</ejb-class>  -->
 			<!-- UE EJB1: setzen Sie den timeout auf 100 -->
 			<stateful-timeout>
-				<timeout>1000000</timeout>
+				<timeout>100</timeout>
 				<unit>Milliseconds</unit>
 			</stateful-timeout>
 		</session>
