@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class Campaign extends AbstractProduct implements Serializable {
 
 	/**
@@ -20,6 +19,7 @@ public class Campaign extends AbstractProduct implements Serializable {
 	 */
 	private static final long serialVersionUID = 4407600000386810001L;
 
+	@OneToMany(cascade=CascadeType.ALL)
 	private List<ProductBundle> bundles;
 
 	public Campaign() {

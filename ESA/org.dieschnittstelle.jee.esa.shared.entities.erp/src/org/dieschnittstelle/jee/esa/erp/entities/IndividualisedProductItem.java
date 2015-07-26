@@ -11,8 +11,8 @@ import javax.xml.bind.annotation.XmlType;
 
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-@XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(namespace = "http://dieschnittstelle.org/jee/esa/erp/entities")
+//@XmlAccessorType(XmlAccessType.PROPERTY)
+//@XmlType(namespace = "http://dieschnittstelle.org/jee/esa/erp/entities")
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class IndividualisedProductItem extends AbstractProduct implements Serializable {

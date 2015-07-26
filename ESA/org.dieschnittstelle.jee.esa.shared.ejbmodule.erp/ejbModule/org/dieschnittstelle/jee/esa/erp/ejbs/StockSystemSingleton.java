@@ -100,7 +100,9 @@ public class StockSystemSingleton implements StockSystemRemote {
 		int total = 0;
 		List<StockItem> items = stockItemCRUD.readStockItemsForProduct(product);
 		for (StockItem item : items) {
-			total += item.getUnits();
+			if (item != null) {
+				total += item.getUnits();
+			}
 		}
 		return total;
 	}

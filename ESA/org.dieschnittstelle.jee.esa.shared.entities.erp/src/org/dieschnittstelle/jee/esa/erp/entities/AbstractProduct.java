@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -19,12 +22,13 @@ import org.dieschnittstelle.jee.esa.entities.GenericCRUDEntity;
  * UE JRS3: entfernen Sie die Auskommentierung der Annotation
  */
 @JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include=JsonTypeInfo.As.PROPERTY, property="@class")
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(namespace = "http://dieschnittstelle.org/jee/esa/erp/entities")
+//@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlType(namespace = "http://dieschnittstelle.org/jee/esa/erp/entities")
 @XmlSeeAlso({IndividualisedProductItem.class})
 @Entity
+@Table(name="Product")
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@SequenceGenerator(name="product_sequence", sequenceName="product_id_sequence")
 public abstract class AbstractProduct implements Serializable, GenericCRUDEntity {
 
 	/**
@@ -33,7 +37,7 @@ public abstract class AbstractProduct implements Serializable, GenericCRUDEntity
 	private static final long serialVersionUID = 6940403029597060153L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="product_sequence")
 	private int id;
 
 	private String name;
