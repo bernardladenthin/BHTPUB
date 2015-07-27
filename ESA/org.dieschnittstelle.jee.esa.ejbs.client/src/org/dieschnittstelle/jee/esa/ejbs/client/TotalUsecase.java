@@ -166,6 +166,9 @@ public class TotalUsecase {
 		} catch (Exception e) {
 			logger.error("got exception during shopping: " + e, e);
 		}
+		
+		System.out.println("\n***************** doShopping() done\n");
+		if (this.stepping) Util.step();
 	}
 
 	public void showTransactions() {
