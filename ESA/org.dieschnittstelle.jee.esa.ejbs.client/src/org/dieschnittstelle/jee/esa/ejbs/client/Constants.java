@@ -20,6 +20,7 @@ public class Constants {
 	 * the bean identifiers
 	 */
 	public static final String SHOPPING_CART_BEAN = "ejb:org.dieschnittstelle.jee.esa.ejbs/org.dieschnittstelle.jee.esa.shared.ejbmodule.crm/ShoppingCartStateful!org.dieschnittstelle.jee.esa.crm.ejbs.ShoppingCartRemote?stateful";
+	public static final String SHOPPING_SESSION_BEAN = "ejb:org.dieschnittstelle.jee.esa.ejbs/org.dieschnittstelle.jee.esa.shared.ejbmodule.crm/ShoppingSessionFacadeStateful!org.dieschnittstelle.jee.esa.shopping.ShoppingSessionFacadeRemote?stateful";
 	public static final String CAMPAIGN_TRACKING_BEAN = "ejb:org.dieschnittstelle.jee.esa.ejbs/org.dieschnittstelle.jee.esa.shared.ejbmodule.crm/CampaignTrackingSingleton!org.dieschnittstelle.jee.esa.crm.ejbs.CampaignTrackingRemote";
 	public static final String CUSTOMER_TRACKING_BEAN = "ejb:org.dieschnittstelle.jee.esa.ejbs/org.dieschnittstelle.jee.esa.shared.ejbmodule.crm/customerTrackingSystem!org.dieschnittstelle.jee.esa.crm.ejbs.CustomerTrackingRemote";
 	public static final String CUSTOMER_CRUD_BEAN = "ejb:org.dieschnittstelle.jee.esa.ejbs/org.dieschnittstelle.jee.esa.shared.ejbmodule.crm/CustomerCRUDStateless!org.dieschnittstelle.jee.esa.crm.ejbs.crud.CustomerCRUDRemote";

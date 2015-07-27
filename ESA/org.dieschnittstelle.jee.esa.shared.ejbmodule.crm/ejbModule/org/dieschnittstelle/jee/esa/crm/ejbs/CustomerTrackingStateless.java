@@ -16,7 +16,7 @@ import org.jboss.logging.Logger;
  * allows read/write access to a customer's shopping history
  */
 @Stateless(name="customerTrackingSystem")
-public class CustomerTrackingStateless implements CustomerTrackingRemote {
+public class CustomerTrackingStateless implements CustomerTrackingRemote, CustomerTrackingLocal {
 
 	protected static Logger logger = Logger
 			.getLogger(CustomerTrackingStateless.class);
